@@ -12,7 +12,7 @@ namespace Lunetics\LocaleBundle\LocaleGuesser;
 use Symfony\Component\HttpFoundation\Request;
 use Lunetics\LocaleBundle\Validator\MetaValidator;
 /**
- * This guesser class checks the session for a var
+ * This guesser class checks the query parameter for a var
  *
  * @author Matthias Breddin <mb@lunetics.com>
  */
@@ -29,11 +29,6 @@ class QueryLocaleGuesser implements LocaleGuesserInterface
     private $identifiedLocale;
 
     /**
-     * @var Request
-     */
-    private $request;
-
-    /**
      * Constructor
      *
      * @param MetaValidator $metaValidator       MetaValidator
@@ -46,7 +41,7 @@ class QueryLocaleGuesser implements LocaleGuesserInterface
     }
 
     /**
-     * Guess the locale based on the session variable
+     * Guess the locale based on the query parameter variable
      *
      * @param Request $request
      *

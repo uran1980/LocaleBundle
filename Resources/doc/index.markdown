@@ -4,7 +4,7 @@
 
 ``` yaml
 "require": {
-    "lunetics/locale-bundle": "dev-master",
+    "lunetics/locale-bundle": "2.2.*",
     ....
 },
 ```
@@ -103,7 +103,7 @@ This is most useful for unregistered and returning visitors.
 The session guesser will automatically save a previously identified locale into the session and retrieve it from the session. This guesser should always be first in your `guessing_order` configuration if you don't use the router guesser.
 
 ### FilterLocaleSwitchEvent / LocaleUpdateListener
-The `LocaleGuesserManager` dispatches a `LocaleBundleEvents::onLocalChange` if you use either the 'session' or `cookie` guesser. The LocaleUpdateListeners checks if the locale has changed and updates the session or cookie.
+The `LocaleGuesserManager` dispatches a `LocaleBundleEvents::onLocalChange` if you use either the `session` or `cookie` guesser. The LocaleUpdateListeners checks if the locale has changed and updates the session or cookie.
 
 
 For example, if you don't use route / query parameters for locales, you could build an own listener for your user login, which dispatches a `LocaleBundleEvents::onLocalChange` event to set the locale for your user. You just have to use the `FilterLocaleSwitchEvent` and set the locale.
@@ -113,6 +113,11 @@ $locale = $user->getLocale();
 $localeSwitchEvent = new FilterLocaleSwitchEvent($locale);
 $this->dispatcher->dispatch(LocaleBundleEvents::onLocaleChange, $localeSwitchEvent);
 ```
+### Custom Form Types
+
+Read more about using the custom choice Form Type here:
+
+[Read the full documentaion on usage of the custom choice Form Type](forms.md)
 
 ### Custom Guessers
 
